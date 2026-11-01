@@ -22,3 +22,6 @@ obj/
 .DS_Store
 yarn.lock
 npm-debug.log
+
+# SiriusXM login for the now-playing fallback (secret)
+siriusxm-login.json
