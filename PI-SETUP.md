@@ -18,3 +18,13 @@ Don't hand-write `settings.json` (gitignored). The setup script generates it:
 `household` is required. Without it, discovery can lock onto the Sonos Roam SL (a separate
 S2 system on the same Wi-Fi), and Kitchen disappears. Use the short ID from SSDP
 (`pi-setup/find-household.js`), not the longer `HouseholdControlID` from `:1400/status/zp`.
+
+## SiriusXM song data (fork-only feature)
+
+SiriusXM stopped sending song data to Sonos in late 2026. `lib/helpers/sirius-now-playing.js`
+looks the song up (xmplaylist.com first, then SiriusXM's own API) and fills it into `/state` and
+the webhook. `GET /sxmnowplaying` shows its status, and `/sxmnowplaying/auto|on|off` switches it.
+The optional SiriusXM login lives in `siriusxm-login.json` here (gitignored, never commit it).
+
+How it works, switching back, and troubleshooting:
+[music-screen-api/pi-setup/README.md#siriusxm-song-data](https://github.com/joshvanpraag/music-screen-api/blob/master/pi-setup/README.md#siriusxm-song-data)
